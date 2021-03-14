@@ -1,0 +1,36 @@
+
+
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}Login{% endblock %}
+
+{% block content %}
+
+    <main class="page login-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Log In</h2>
+                    <p>Dengan Login Maka Kamu bisa membuat laporan kepada Kami</p>
+                </div>
+                <form method="post" action="{% url 'account_login' %}">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button class="btn btn-primary btn-block" type="submit">Log In</button>
+                    <div class="form-group mt-2">
+                        <p>Click <a href="{{ signup_url }}">Here</a> if u doesn't have {{  site_name }} accounts</p>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

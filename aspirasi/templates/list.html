@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Title deh{% endblock %}
+
+{% block content %}
+
+   <main class="page blog-post-list">
+        <section class="clean-block clean-blog-list dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Aspirasi Kamu</h2>
+                </div>
+                <div class="block-content">
+                    {% if object_list %}
+                    {% for post in object_list %}
+                    <div class="clean-blog-post">
+                        <div class="row">
+                            <div class="col-lg-7 mx-auto">
+                                <h3>{{ post.title }}</h3>
+                                <div class="info"><span class="text-muted">{{ post.date_created | date:"M d, Y - H:i"}} - </span><span class="text-muted">{{ post.jenis_aspirasi }}</span></div>
+                                <p>{{ post.aspirasi }}</p>
+                                <p>Status : {{ post.status }}</p>
+<!--                            <a href="" class="btn btn-outline-primary btn-sm" >Read More</a>-->
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    {% else %}
+
+                    <div class="clean-blog-post">
+                        <div class="row">
+                            <div class="col-lg-7 mx-auto">
+                                <h3>Kamu Belum Membuat Aspirasi</h3>
+                                <div class="info"><span class="text-muted">{{ post.date_created | date:"M d, Y - H:i"}} - </span><span class="text-muted">{{ post.jenis_aspirasi }}</span></div>
+                                <p>{{ post.aspirasi }}</p>
+                                <form action="{% url 'aspirasi:create' %}">
+                                    <button class="btn btn-lg btn-outline-info">Buat Aspirasi</button>
+                                </form>
+<!--                            <a href="" class="btn btn-outline-primary btn-sm" >Read More</a>-->
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

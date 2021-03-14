@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+{% load i18n %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>{% block head_title %}{% endblock %} - Lapor.co</title>
+    <link rel="stylesheet" href="{% static 'home/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="{% static 'home/assets/fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="{% static 'home/assets/css/smoothproducts.css' %}">
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block body %}
+<!--        {% if messages %}-->
+<!--            <div>-->
+<!--                <strong>Messages:</strong>-->
+<!--                <ul>-->
+<!--                    {% for message in messages %}-->
+<!--                        <li>{{message}}</li>-->
+<!--                    {% endfor %}-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        {% endif %}-->
+
+<!--        <div>-->
+<!--            <strong>Menu:</strong>-->
+<!--            <ul>-->
+<!--                {% if user.is_authenticated %}-->
+<!--                    <li><a href="{% url 'account_email' %}">Change E-mail</a></li>-->
+<!--                    <li><a href="{% url 'account_logout' %}">Sign Out</a></li>-->
+<!--                {% else %}-->
+<!--                    <li><a href="{% url 'account_login' %}">Sign In</a></li>-->
+<!--                    <li><a href="{% url 'account_signup' %}">Sign Up</a></li>-->
+<!--                {% endif %}-->
+<!--            </ul>-->
+<!--        </div>-->
+        {% block content %}
+        {% endblock %}
+
+    {% endblock %}
+
+    {% block extra_body %}
+    {% endblock %}
+
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2021 Copyright Raden Ronggo</p>
+        </div>
+    </footer>
+    <script src="{% static 'home/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'home/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'home/assets/js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'home/assets/js/theme.js' %}"></script>
+</body>
+
+

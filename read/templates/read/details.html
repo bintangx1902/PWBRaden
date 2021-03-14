@@ -1,0 +1,35 @@
+{% extends 'read/base.html' %}
+
+{% load static %}
+
+{% block title %}Title deh{% endblock %}
+
+{% block content %}
+
+    <main class="page blog-post">
+        <section class="clean-block clean-post dark">
+            <div class="container">
+                <div class="block-content">
+                    <div class="post-image" style="background-image:url({% static 'gambar/42-3840x2160.jpg' %});"></div>
+                    <div class="post-body">
+                        <h3>{{ aspiration.title }}</h3>
+                        <div class="post-info">
+                            <span>By &nbsp;{{ aspiration.penduduk }}</span>
+                            <span>{{ aspiration.date_created | date:"M d, Y - H:i"}}</span>
+                            <span>{{ aspiration.jenis_aspirasi }}</span>
+                        </div>
+                        <p>{{ aspiration.aspirasi }}</p>
+                        <div class="d-flex">
+                            <form action="{% url 'read:marked' aspiration.pk %}">
+                                <button class="btn btn-outline-info">Mark As Read</button>
+                            </form>
+                            <a href="{% url 'read:feedback' aspiration.pk %}" class="btn ml-3 btn-primary">Give A Feedback</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock %}

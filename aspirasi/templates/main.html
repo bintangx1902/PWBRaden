@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block style %}
+{% endblock %}
+
+{% block content %}
+
+    <main class="page landing-page">
+        <section class="clean-block clean-hero" style="background-image:url({% static 'home/assets/img/tech/image4.jpg' %});color:rgba(9, 162, 255, 0.85);">
+            <div class="text">
+                <h2>Lapor.co</h2>
+                <p>Lapor.co Adalah website tempat menyalurkan aspirasi dan laporan yang berkaitan terhadap keseluruhan yang ada di masyarakat</p>
+                {% if user.is_authenticated %}
+                <p>Klik disini Untuk melihat list</p>
+                <a href="{% url 'aspirasi:my-list' %}" class="btn btn-outline-light btn-lg" type="button">Learn More</a>
+                {% else %}
+                {% endif %}
+            </div>
+        </section>
+        <section class="clean-block clean-info dark" id="info">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Info</h2>
+                    <p>Jangan Ragu dalam membuat laporan maupun aspirasi terhadap kami, kerahasiaan pelapor adalah yang paling utama!.<br><br></p>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-6"><img class="img-thumbnail" src="https://cdn1-production-images-kly.akamaized.net/PkFMfV7UBVDGiRcrmY9JM7MzKG4=/673x379/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2434470/original/001557500_1542953156-kisah-menghangatkan-hati-muslim-jaga-saudara-kristiani-yang-sedang-beribadah-di-gereja.jpg"></div>
+                    <div class="col-md-6">
+                        <h3>Akankah Itu Indah?</h3>
+                        <div class="getting-started-info">
+                            <p>Maka untuk sebuah keindahan itu, kamu tidak perlu takut maupun khawatir dengan orang yang kamu laporkan.<br><br>Data Pelapor akan sangat di rahasiakan</p>
+                        </div>
+                        <form action="{% url 'aspirasi:create' %}">
+                            <button class="btn btn-outline-primary btn-lg" >
+                                {% if not user.is_authenticated %}
+                                Login & Create
+                                {% else %}
+                                Create
+                                {% endif %}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Features</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
+                        <h4>Bootstrap 4.6</h4>
+                        <p>Front-End ini di bangun menggunakan Bootstrap Studio</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
+                        <h4>Customizable</h4>
+                        <p>Kalau Kamu menggunakan Bootstrap Studio maka Tampilan web bisa di ubah dengan cara drag n drop</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
+                        <h4>Responsive</h4>
+                        <p>Apapun yang di buat menggunakan Bootstrap maka akan secara otomatis Responsive</p>
+                    </div>
+                    <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
+                        <h4>All Browser Compatibility</h4>
+                        <p>Responsive ini berlaku pada semua jenis browser</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

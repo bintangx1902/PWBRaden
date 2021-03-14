@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Title deh{% endblock %}
+
+{% block content %}
+
+
+
+    <main class="page login-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Profile</h2>
+                    <p class="text-capitalize">lengkapilah profile kamu, agar kami mengenal kamu.</p>
+                </div>
+                <form method="post">
+                    {% load crispy_forms_tags %}
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button class="btn btn-primary btn-block" type="submit"> Save </button>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+{% endblock %}
