@@ -68,7 +68,7 @@ class CreateFeedback(CreateView):
     def form_valid(self, form):
         id_ = Aspiration.objects.get(pk=self.kwargs['pk'])
         form.instance.staff_name_id = self.request.user.id
-        form.instace.aspiration_id = id_.pk
+        form.instace.aspiration_id = id_
         con = super(CreateFeedback, self).form_valid(form)
         red = HttpResponseRedirect(self.get_success_url())
         return con and red
